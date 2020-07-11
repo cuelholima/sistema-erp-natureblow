@@ -23,21 +23,21 @@
             </div>
             <div class="card-body">
 
-            <form method="POST" name="form_edit">
+            <form method="POST" name="form_add">
               <div class="form-group row">
                 <div class="col-md-4">
                   <label>Nome</label>
-                  <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo $usuario->first_name; ?>">
+                  <input type="text" class="form-control" name="first_name" placeholder="Seu nome" value="<?php echo set_value('first_name'); ?>">
                   <?php echo form_error('first_name', '<small class="form-text text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-4">
                   <label>Sobrenome</label>
-                  <input type="text" class="form-control" name="last_name" placeholder="Seu sobrenome" value="<?php echo $usuario->last_name; ?>">
+                  <input type="text" class="form-control" name="last_name" placeholder="Seu sobrenome" value="<?php echo set_value('last_name'); ?>">
                   <?php echo form_error('last_name', '<small class="form-text text-danger">', '</small>'); ?>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4"> 
                   <label>E-mail&nbsp;(login)</label>
-                  <input type="email" class="form-control" name="email" placeholder="Seu email" value="<?php echo $usuario->email; ?>">
+                  <input type="email" class="form-control" name="email" placeholder="Seu email" value="<?php echo set_value('email'); ?>">
                   <?php echo form_error('email', '<small class="form-text text-danger">', '</small>'); ?>
                 </div>
               </div>
@@ -45,21 +45,21 @@
               <div class="form-group row">
               <div class="col-md-4">
                   <label>Usuário</label>
-                  <input type="text" class="form-control" name="username" placeholder="Seu usuário" value="<?php echo $usuario->username; ?>">
+                  <input type="text" class="form-control" name="username" placeholder="Seu usuário" value="<?php echo set_value('username'); ?>">
                   <?php echo form_error('username', '<small class="form-text text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-4">
                   <label>Ativo</label>
                   <select class="form-control" name="active">
-                    <option value="0" <?php echo ($usuario->active ==0) ? 'selected' : '' ?>>Não</option>
-                    <option value="1" <?php echo ($usuario->active ==1) ? 'selected' : '' ?>>Sim</option>
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
                   </select>
                 </div>
                 <div class="col-md-4">
                   <label>Perfil de acesso</label>
                   <select class="form-control" name="perfil_usuario">
-                    <option value="2" <?php echo ($perfil_usuario->id == 2) ? 'selected' : '' ?>>Vendedor</option>
-                    <option value="1" <?php echo ($perfil_usuario->id == 1) ? 'selected' : '' ?>>Administrador</option>
+                    <option value="2">Vendedor</option>
+                    <option value="1">Administrador</option>
                   </select>
                 </div>
               </div>
@@ -76,8 +76,7 @@
                   <?php echo form_error('confirm_password', '<small class="form-text text-danger">', '</small>'); ?>
                 </div>
               </div>
-              <input type="hidden" name="usuario_id" value="<?php echo $usuario->id ?>">
-              <button type="submit" class="btn btn-primary">Atualizar</button>
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
             </div>
           </div>
