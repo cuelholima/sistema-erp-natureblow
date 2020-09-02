@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jul-2020 às 20:44
+-- Tempo de geração: 02-Set-2020 às 03:19
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.2.31
 
@@ -57,6 +57,39 @@ CREATE TABLE `login_attempts` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `sistema`
+--
+
+CREATE TABLE `sistema` (
+  `sistema_id` int(11) NOT NULL,
+  `sistema_razao_social` varchar(145) DEFAULT NULL,
+  `sistema_nome_fantasia` varchar(145) DEFAULT NULL,
+  `sistema_cnpj` varchar(25) DEFAULT NULL,
+  `sistema_ie` varchar(25) DEFAULT NULL,
+  `sistema_telefone_fixo` varchar(25) DEFAULT NULL,
+  `sistema_telefone_movel` varchar(25) NOT NULL,
+  `sistema_email` varchar(100) DEFAULT NULL,
+  `sistema_site_url` varchar(100) DEFAULT NULL,
+  `sistema_cep` varchar(25) DEFAULT NULL,
+  `sistema_endereco` varchar(145) DEFAULT NULL,
+  `sistema_numero` varchar(25) DEFAULT NULL,
+  `sistema_cidade` varchar(45) DEFAULT NULL,
+  `sistema_estado` varchar(2) DEFAULT NULL,
+  `sistema_txt_ordem_servico` tinytext DEFAULT NULL,
+  `sistema_data_alteracao` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `sistema`
+--
+
+INSERT INTO `sistema` (`sistema_id`, `sistema_razao_social`, `sistema_nome_fantasia`, `sistema_cnpj`, `sistema_ie`, `sistema_telefone_fixo`, `sistema_telefone_movel`, `sistema_email`, `sistema_site_url`, `sistema_cep`, `sistema_endereco`, `sistema_numero`, `sistema_cidade`, `sistema_estado`, `sistema_txt_ordem_servico`, `sistema_data_alteracao`) VALUES
+(1, 'noem fantasia', 'noem fantasia 2', '23101590850', NULL, '1998383328', '19883833328', 'matheuz@hotmail.com', 'www.natureblow.com.br', '13472010', 'rua seilaoq', '277', 'americana', 'sp', NULL, '2020-08-04 02:01:38'),
+(2, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blablabla blabl', '2020-08-04 02:01:38');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `users`
 --
 
@@ -87,7 +120,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'administrator', '$2y$12$hbFVVq016xlL17ooL0P.pe3DQbU/Ep/iTe1bg/mQA.Q8Elin6f3.2', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1268889823, 1, 'Admin', 'istrator', 'ADMIN', '0');
+(1, '127.0.0.1', 'administrator', '$2y$12$hbFVVq016xlL17ooL0P.pe3DQbU/Ep/iTe1bg/mQA.Q8Elin6f3.2', 'admin@admin.com', NULL, '', NULL, NULL, NULL, NULL, NULL, 1268889823, 1599001685, 1, 'Admin', 'istrator', 'ADMIN', '0');
 
 -- --------------------------------------------------------
 
@@ -126,6 +159,12 @@ ALTER TABLE `login_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `sistema`
+--
+ALTER TABLE `sistema`
+  ADD PRIMARY KEY (`sistema_id`);
+
+--
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
@@ -158,19 +197,25 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `sistema`
+--
+ALTER TABLE `sistema`
+  MODIFY `sistema_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `users_groups`
 --
 ALTER TABLE `users_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para despejos de tabelas
