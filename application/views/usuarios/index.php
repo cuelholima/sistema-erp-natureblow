@@ -70,7 +70,7 @@
                       <td class="text-center pr-4"><?php echo ($user->active == 1 ? '<span class="badge-info btn-sm">Sim</span>' : '<span class="badge badge-warning btn-sm">Não</span>') ?></td>
                       <td class="text-right">
                           <a title="Editar" href="<?php echo base_url('usuarios/edit/'.$user->id); ?>" class="btn btn-sm btn-primary"><i class=" fas fa-user-edit"></i>&nbsp;Editar</a>
-                          <a title="Excluir" href="#" data-toggle="modal" data-target="#user-<?php echo $user->id; ?>" class="btn btn-sm btn-danger"><i class=" fas fa-user-times"></i>&nbsp;Excluir</a>
+                          <a title="Excluir" href="javascript(void)" data-toggle="modal" data-target="#user-<?php echo $user->id; ?>" class="btn btn-sm btn-danger"><i class=" fas fa-user-times"></i>&nbsp;Excluir</a>
                       </td>  
                     </tr>
                     <div class="modal fade" id="user-<?php echo $user->id; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,7 +85,7 @@
                           <div class="modal-body">Para excluir o registro clique em <strong>"Sim"</strong></div>
                           <div class="modal-footer">
                             <button class="btn btn-primary btn-sm" type="button" data-dismiss="modal">Não</button>
-                            <a class="btn btn-danger btn-sm" href="login.html">Sim</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo base_url('usuarios/del/' . $user->id); ?>">Sim</a>
                           </div>
                         </div>
                       </div>
